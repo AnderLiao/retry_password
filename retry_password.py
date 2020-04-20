@@ -1,14 +1,12 @@
 default_pw = 'a123456'
-i = 3
-while True:
+i = 3 # remaining balance
+while i > 0:
 	user_pw = input('Password: ')
-	if user_pw != default_pw:
-		if i == 1:
-			print('Sorry, you only can try again after 24 hours')
-			break
-		else:
-			print('You have ' + str(i-1) + ' more chances to try')
-			i -= 1
-	else:
+	i -= 1
+	if user_pw == default_pw:
 		print('Successful login!')
 		break
+	elif i == 0:
+		print('Sorry, you only can try again after 24 hours')
+	else:
+		print('You have ' + str(i) + ' more chances to try')
